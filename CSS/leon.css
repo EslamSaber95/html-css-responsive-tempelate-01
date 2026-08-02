@@ -1,0 +1,470 @@
+/* Start Variables */
+:root {
+    --main-color: #10cab7;
+    --secondary-color: #2c4755;
+    --section-background: #f6f6f6;
+    --section-padding: 60px;
+}
+
+/* End Variables */
+
+/* Start global rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+html {
+    scroll-behavior: smooth;
+}
+.container {
+    padding: 0 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+.container {
+    width: 100%;
+}
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (min-width: 768px) { 
+ .container {
+    width: 750px;
+}   
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (min-width: 992px) { 
+.container {
+    width: 970px;
+}
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (min-width: 1200px) { 
+.container {
+    width: 1170px;
+}
+}
+/* X-Large devices (large desktops, less than 1400px) */
+
+@media (min-width: 1400px) { 
+.container {
+     width: 1320px;  
+}
+}
+
+/*  XX-Large devices (larger desktops) 
+No media query since the xxl breakpoint has no upper bound on its width */
+
+
+/* End global rules */
+
+/* Start Component */          /*repeated section heading style*/
+.special-heading {
+color: #ebeced;
+font-size: 100px;
+letter-spacing: -4px;
+font-weight: 800;
+margin: 0;
+text-align: center;
+}
+.special-heading + p {
+margin-top: -30px;
+color: #797979;
+font-size: 20px;
+text-align: center;
+}
+@media (max-width: 767px) {
+    .special-heading {
+        font-size: 70px;
+    }
+    .special-heading + p {
+        margin-top: -20px;
+    }
+}
+/* End Component */
+
+/* Start Header */
+.header {
+    padding: 15px;
+}
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .logo {
+    width: 60px;
+}
+.header .links {
+    position: relative;
+}
+.header .links .icons {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30px;
+    justify-content: flex-end;
+}
+.header .links .icons:hover span:nth-child(2) {
+    width: 100%;
+}
+.header .links .icons span {
+    background-color: #333;
+    margin-bottom: 5px;
+    height: 2px;
+}
+.header .links .icons span:first-child  {
+    width: 100%;
+}
+.header .links .icons span:nth-child(2) {
+    width: 60%;
+    transition: .3s;
+}
+.header .links .icons span:last-child  {
+    width: 100%;
+}
+.header .links ul {
+    margin: 0;
+    padding: 0;
+    background-color: #f6f6f6;
+    list-style: none;
+    position: absolute;
+    right: 0;
+    min-width: 200px;
+    top: calc(100% + 15px);
+    display: none;
+    z-index: 1;
+  
+}
+.header .links:hover ul {
+    display: block;
+    
+}
+.header .links ul::before {
+    content: "";
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #f6f6f6 transparent;
+    top: -20px;
+    right: 5px;
+}
+.header .links ul a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #333;
+    transition: .3s;
+}
+.header .links ul li a:hover {
+    padding-left: 22px;
+}
+.header .links ul li:not(:last-child)  {
+    border-bottom: 1px solid #ddd ;
+
+}
+/* End Header */
+/* Start Landing Section */
+.landing {
+    height: calc(100vh - 54px);  /* 54px is the header height i removed it from 100vh so that section fits screen without scrolling we also removed the heading margin as it also makes screen scroll -- 100vh is suposed to let section fits the screen if we found scrolling we should remove its causes*/
+    background-image: url(../images/landing.jpg);
+    background-size: cover;
+    position: relative;
+
+}
+.intro-text  {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    width: 320px;  /* to let text not wrap in mobile */
+    max-width: 100%;
+}
+.intro-text h1 {
+    margin: 0;
+    font-weight: bold;
+    color: var(--main-color);
+    font-size: 50px;
+}
+.intro-text p {
+    font-size: 20px;
+    line-height: 1.8;
+}
+/* End Landing Section */
+/* Start Features Section */
+.features {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--section-background);
+}
+.features .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 20px
+}
+
+.features .feat {
+    text-align: center;
+    padding: 20px;
+}
+
+.features .feat i {
+    color: var(--main-color);
+    scale: 2;
+    /* we use font size property to control the icon size , but i prefered to use scale here */
+}
+.features .feat h3 {
+    font-weight: 800;
+    margin: 30px 0;
+}
+.features .feat p {
+    line-height: 1.8;
+    color: #777;
+    font-size: 17px;
+}
+/* End Features Section */
+/* Start Services Section */
+
+/* .services {
+    margin-bottom: 60px;   using this margin or portfolio margin to avoing covering the image in services
+} */
+.services .services-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 30px;
+    margin-top: 100px;
+}
+.services .services-content .srv {
+display: flex;
+margin-bottom: 40px;
+}
+@media (max-width: 767px) {
+    .services .services-content .col .srv {
+        flex-direction: column;
+        text-align: center;
+    }
+    .services .services-content .col .srv i {   /* I did that because text align center which was done by Elzero didn't center the icon on mobile */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.srv i {
+    color: var(--main-color);
+    flex-basis: 60px;
+}
+.srv .text {
+    flex: 1;
+}
+.srv .text h3 {
+    margin: 0 0 20px;  /* remove upper margin to be at the same level with the icon*/
+}
+.srv .text p {
+    color: #777;
+    font-weight: 300;
+    line-height: 1.63;
+}
+.services .services-content .col .services-img {
+    position: relative;
+    text-align: center;
+}
+
+.services .services-content .col .services-img::before {
+    content: '';
+    background-color: var(--secondary-color);
+    position: absolute;
+    top: -40px;
+    right: 0;
+    height: calc(100% + 80px);
+    width: 100px;
+    z-index: -1;
+}
+.services .services-content .col .services-img img {
+    width: 260px;
+}
+@media (max-width: 1199px) {
+    .services .services-content .col .services-img  {
+        display: none;
+    }
+}
+/* End Services Section */
+
+/* Start Portfolio Section */
+.portfolio {
+    /*padding-top: var(--section-padding);*/      /* canceled padding and put margin to avoid the "after" element*/
+    padding-bottom: var(--section-padding);
+    background-color: var(--section-background);
+    margin-top: 60px;
+}
+.portfolio .portfolio-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 30px;
+    margin-top: 100px;
+}
+
+.portfolio .portfolio-content .card {
+    background-color: white;
+}
+.portfolio .portfolio-content img {
+    width: 100%;
+}
+.portfolio .portfolio-content .info {
+
+padding: 20px;
+}
+.portfolio .portfolio-content .info h3 {
+    margin: 0;
+}
+.portfolio .portfolio-content .info p {
+    color: #777;
+    font-weight: 300;
+    line-height: 1.63;
+    margin-bottom: 0;
+}
+/* End Portfolio Section */
+/* Start About Section */
+ .about {
+    /* padding-top: var(--section-padding); */
+    padding-bottom: calc(var(--section-padding) + 50px);
+} 
+ .about-content {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    align-items: center;
+ }
+ @media (max-width: 991px) { 
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+ }
+ .about-content .image {
+    width: 250px;
+    height: 375px;
+    position: relative;
+ }
+ .about-content .image::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: calc(100% + 100px);
+    background-color: #ebeced;
+    top: -50px;
+    left: -15px;
+    z-index: -1;
+ }
+ .about-content .image::after {
+    content: "";
+    position: absolute;
+    width: 40%;
+    height: 70%;
+    border-left: 80px solid var(--main-color);
+    border-bottom: 80px solid var(--main-color);
+    top: -50px;
+    right:-140px; 
+    z-index: -1;
+ }
+ @media (max-width: 991px) {
+ .about-content .image::before ,
+ .about-content .image::after {
+    display: none;
+ }
+}
+.about-content .image img {
+    max-width: 100%;
+    /* height: 375px; */
+ }
+ .about-content .text {
+    flex-basis: calc(100% - 500px);
+ }
+ .about-content .text p:first-of-type {
+    font-weight: bold;
+    line-height: 1.8;
+    margin-bottom: 50px;
+ }
+ .about-content .text hr {
+    width: 50%;
+    border-color:  var(--main-color);
+    display: inline-block;
+ }
+
+ .about-content .text p:last-of-type {
+    margin-top: 25px;
+    color: #777;
+ }
+/* End About Section */
+
+/* Start Contact Section */
+.contact {
+    background-color: var(--section-background);
+    
+}
+.contact .info {
+    text-align: center;
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.contact .label {
+    font-size: 35px;
+    font-weight: 800;
+    color: var(--secondary-color);
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+}
+.contact .link {
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--main-color);
+    display: block;
+    margin-top: -15px;
+}
+
+.contact .info .social {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+@media (max-width:767px) {
+.contact .label,
+.contact .link {
+    font-size: 25px;
+}
+.contact .info .social {
+    font-size: 15px;
+}
+}
+.contact .info .social i {
+    margin-left: 10px;
+    color: var(--secondary-color);
+}
+/* End Contact Section */
+
+/* Start Footer */
+.footer {
+    padding: 15px 5px;
+    background-color: var(--secondary-color);
+    text-align: center;
+    color: white;
+}
+.footer span {
+    color: var(--main-color);
+    font-weight: bold;
+}
+/* End Footer */
